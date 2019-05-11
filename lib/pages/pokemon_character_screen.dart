@@ -1,14 +1,19 @@
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
+import 'package:pokemon/data/pokemon_character.dart';
 
-class Bellsprout extends StatelessWidget {
+class PokemonCharacterScreen extends StatelessWidget {
+  final PokemonCharacter pokemonCharacter;
+
+  const PokemonCharacterScreen({Key key, @required this.pokemonCharacter}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
           title: Text(
-            "Bellsprout",
+            pokemonCharacter.name,
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 25),
           ),
@@ -23,16 +28,21 @@ class Bellsprout extends StatelessWidget {
               ),
             ),
           ),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.arrow_forward_ios),
-              onPressed: () => Navigator.pushNamed(context, "/caterpie"),
-            )
-          ],
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios),
-            onPressed: () => Navigator.pushNamed(context, "/squirtle"),
+            onPressed: () => pokemonCharacter.prev == null
+                ? Navigator.of(context).pop()
+                : Navigator.of(context).pushReplacementNamed(pokemonCharacter.prev),
           ),
+          actions: pokemonCharacter.next != null
+              ? <Widget>[
+                  IconButton(
+                    icon: Icon(Icons.arrow_forward_ios),
+                    onPressed: () =>
+                        Navigator.of(context).pushReplacementNamed(pokemonCharacter.next),
+                  )
+                ]
+              : null,
         ),
         body: Column(
           children: <Widget>[
@@ -48,8 +58,7 @@ class Bellsprout extends StatelessWidget {
                       spreadRadius: 1.0)
                 ],
                 borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(40),
-                    bottomLeft: Radius.circular(40)),
+                    bottomRight: Radius.circular(40), bottomLeft: Radius.circular(40)),
                 gradient: new LinearGradient(
                   colors: [Colors.amber, Colors.cyan],
                 ),
@@ -65,11 +74,11 @@ class Bellsprout extends StatelessWidget {
                           offset: new Offset(4.0, 4.0),
                           blurRadius: 10.0,
                           spreadRadius: 6.0)
-                    ], border: Border.all(width: 4, color: Colors.yellow)),
+                    ], border: Border.all(width: 4, color: pokemonCharacter.boxColor)),
                     child: FlareActor(
-                      "assets/bellsprout.flr",
+                      pokemonCharacter.flare,
                       fit: BoxFit.contain,
-                      animation: "bellsprout",
+                      animation: pokemonCharacter.name,
                     ),
                   ),
                 ),
@@ -83,17 +92,14 @@ class Bellsprout extends StatelessWidget {
                   padding: EdgeInsets.all(3.0),
                   decoration: BoxDecoration(
                       gradient: new LinearGradient(
-                        colors: [
-                          Colors.amberAccent[200],
-                          Colors.redAccent[100]
-                        ],
+                        colors: [Colors.amberAccent[200], Colors.redAccent[100]],
                       ),
                       border: Border.all(
                         width: 2,
                         color: Colors.black87,
                       )),
                   child: Text(
-                    "Type:Grass/Poison",
+                    "Type: ${pokemonCharacter.type}",
                     style: TextStyle(fontSize: 19),
                   ),
                 ),
@@ -102,14 +108,11 @@ class Bellsprout extends StatelessWidget {
                   padding: EdgeInsets.all(3.0),
                   decoration: BoxDecoration(
                       gradient: new LinearGradient(
-                        colors: [
-                          Colors.amberAccent[200],
-                          Colors.redAccent[100]
-                        ],
+                        colors: [Colors.amberAccent[200], Colors.redAccent[100]],
                       ),
                       border: Border.all(width: 2, color: Colors.black87)),
                   child: Text(
-                    "Category:Flower",
+                    "Category: ${pokemonCharacter.category}",
                     style: TextStyle(fontSize: 19),
                   ),
                 ),
@@ -124,14 +127,11 @@ class Bellsprout extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(3),
                       gradient: new LinearGradient(
-                        colors: [
-                          Colors.amberAccent[200],
-                          Colors.redAccent[100]
-                        ],
+                        colors: [Colors.amberAccent[200], Colors.redAccent[100]],
                       ),
                       border: Border.all(width: 2, color: Colors.black87)),
                   child: Text(
-                    "Abilities:Chlorophyll",
+                    "Abilities: ${pokemonCharacter.abilities}",
                     style: TextStyle(fontSize: 19),
                   ),
                 ),
@@ -150,10 +150,9 @@ class Bellsprout extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 color: Colors.amberAccent[100],
               ),
-              padding: EdgeInsets.only(
-                  top: 10.0, left: 15.0, right: 15.0, bottom: 10),
+              padding: EdgeInsets.only(top: 10.0, left: 15.0, right: 15.0, bottom: 10),
               child: Text(
-                '''Bellsprout's thin and flexible body lets it bend and sway to avoid any attack, however strong it may be. From its mouth, this Pokémon spits a corrosive fluid that melts even iron.''',
+                pokemonCharacter.about,
                 style: new TextStyle(
                   color: Colors.grey[850],
                   fontSize: 17.0,
@@ -165,7 +164,7 @@ class Bellsprout extends StatelessWidget {
           ],
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () => Navigator.pushNamed(context, "/home"),
+          onPressed: () => Navigator.of(context).pop(),
           child: Icon(
             Icons.home,
             color: Colors.black,
