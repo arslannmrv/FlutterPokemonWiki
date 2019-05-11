@@ -1,5 +1,5 @@
-import 'package:video_player/video_player.dart';
 import 'package:flutter/material.dart';
+import 'package:video_player/video_player.dart';
 
 void main() => runApp(PikachuTrailer());
 
@@ -38,9 +38,9 @@ class PikachuTrailerState extends State<PikachuTrailer> {
           flexibleSpace: Container(
             decoration: BoxDecoration(
               boxShadow: [
-                new BoxShadow(
+                BoxShadow(
                     color: Colors.black,
-                    offset: new Offset(4.0, 4.0),
+                    offset: Offset(4.0, 4.0),
                     blurRadius: 10.0,
                     spreadRadius: 1.0)
               ],
@@ -66,13 +66,13 @@ class PikachuTrailerState extends State<PikachuTrailer> {
         ),
         body: Column(children: <Widget>[
           Container(
-             decoration: new BoxDecoration(boxShadow: [
-                      new BoxShadow(
-                          color: Colors.black45,
-                          offset: new Offset(4.0, 4.0),
-                          blurRadius: 10.0,
-                          spreadRadius: 6.0)
-                    ], border: Border.all(width: 4, color: Colors.orange)),
+            decoration: BoxDecoration(boxShadow: [
+              BoxShadow(
+                  color: Colors.black45,
+                  offset: Offset(4.0, 4.0),
+                  blurRadius: 10.0,
+                  spreadRadius: 6.0)
+            ], border: Border.all(width: 4, color: Colors.orange)),
             margin: EdgeInsets.only(top: 40),
             child: _controller.value.initialized
                 ? AspectRatio(
@@ -85,9 +85,9 @@ class PikachuTrailerState extends State<PikachuTrailer> {
             margin: EdgeInsets.only(top: 27, left: 13, right: 13),
             decoration: BoxDecoration(
               boxShadow: [
-                new BoxShadow(
+                BoxShadow(
                     color: Colors.black,
-                    offset: new Offset(4.0, 4.0),
+                    offset: Offset(4.0, 4.0),
                     blurRadius: 10.0,
                     spreadRadius: 1.0)
               ],
@@ -111,9 +111,7 @@ class PikachuTrailerState extends State<PikachuTrailer> {
           backgroundColor: Colors.cyan,
           onPressed: () {
             setState(() {
-              _controller.value.isPlaying
-                  ? _controller.pause()
-                  : _controller.play();
+              _controller.value.isPlaying ? _controller.pause() : _controller.play();
             });
           },
           child: Icon(

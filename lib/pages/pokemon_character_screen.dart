@@ -51,15 +51,15 @@ class PokemonCharacterScreen extends StatelessWidget {
               height: 270,
               decoration: BoxDecoration(
                 boxShadow: [
-                  new BoxShadow(
+                  BoxShadow(
                       color: Colors.black,
-                      offset: new Offset(4.0, 4.0),
+                      offset: Offset(4.0, 4.0),
                       blurRadius: 10.0,
                       spreadRadius: 1.0)
                 ],
                 borderRadius: BorderRadius.only(
                     bottomRight: Radius.circular(40), bottomLeft: Radius.circular(40)),
-                gradient: new LinearGradient(
+                gradient: LinearGradient(
                   colors: [Colors.amber, Colors.cyan],
                 ),
               ),
@@ -68,17 +68,17 @@ class PokemonCharacterScreen extends StatelessWidget {
                   child: Container(
                     width: 200,
                     height: 150,
-                    decoration: new BoxDecoration(boxShadow: [
-                      new BoxShadow(
+                    decoration: BoxDecoration(boxShadow: [
+                      BoxShadow(
                           color: Colors.black45,
-                          offset: new Offset(4.0, 4.0),
+                          offset: Offset(4.0, 4.0),
                           blurRadius: 10.0,
                           spreadRadius: 6.0)
                     ], border: Border.all(width: 4, color: pokemonCharacter.boxColor)),
                     child: FlareActor(
                       pokemonCharacter.flare,
                       fit: BoxFit.contain,
-                      animation: pokemonCharacter.name,
+                      animation: pokemonCharacter.flareAnimationName,
                     ),
                   ),
                 ),
@@ -91,7 +91,7 @@ class PokemonCharacterScreen extends StatelessWidget {
                   margin: EdgeInsets.only(top: 15.0),
                   padding: EdgeInsets.all(3.0),
                   decoration: BoxDecoration(
-                      gradient: new LinearGradient(
+                      gradient: LinearGradient(
                         colors: [Colors.amberAccent[200], Colors.redAccent[100]],
                       ),
                       border: Border.all(
@@ -107,7 +107,7 @@ class PokemonCharacterScreen extends StatelessWidget {
                   margin: EdgeInsets.only(top: 15.0),
                   padding: EdgeInsets.all(3.0),
                   decoration: BoxDecoration(
-                      gradient: new LinearGradient(
+                      gradient: LinearGradient(
                         colors: [Colors.amberAccent[200], Colors.redAccent[100]],
                       ),
                       border: Border.all(width: 2, color: Colors.black87)),
@@ -126,7 +126,7 @@ class PokemonCharacterScreen extends StatelessWidget {
                   padding: EdgeInsets.all(3.0),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(3),
-                      gradient: new LinearGradient(
+                      gradient: LinearGradient(
                         colors: [Colors.amberAccent[200], Colors.redAccent[100]],
                       ),
                       border: Border.all(width: 2, color: Colors.black87)),
@@ -141,9 +141,9 @@ class PokemonCharacterScreen extends StatelessWidget {
               margin: EdgeInsets.all(30),
               decoration: BoxDecoration(
                 boxShadow: [
-                  new BoxShadow(
+                  BoxShadow(
                       color: Colors.black,
-                      offset: new Offset(4.0, 4.0),
+                      offset: Offset(4.0, 4.0),
                       blurRadius: 10.0,
                       spreadRadius: 1.0)
                 ],
@@ -153,7 +153,7 @@ class PokemonCharacterScreen extends StatelessWidget {
               padding: EdgeInsets.only(top: 10.0, left: 15.0, right: 15.0, bottom: 10),
               child: Text(
                 pokemonCharacter.about,
-                style: new TextStyle(
+                style: TextStyle(
                   color: Colors.grey[850],
                   fontSize: 17.0,
                   fontStyle: FontStyle.normal,

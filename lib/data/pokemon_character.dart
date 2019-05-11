@@ -10,6 +10,7 @@ class PokemonCharacter {
   final String next;
   final Color boxColor;
   final String flare;
+  final String flareAnimationName;
 
   const PokemonCharacter({
     @required this.name,
@@ -21,6 +22,7 @@ class PokemonCharacter {
     @required this.next,
     @required this.boxColor,
     @required this.flare,
+    @required this.flareAnimationName,
   });
 
   static const Map<String, PokemonCharacter> pokemonCharacters = {
@@ -35,6 +37,7 @@ class PokemonCharacter {
       next: '/psyduck',
       boxColor: Colors.yellow,
       flare: 'assets/pikachu.flr',
+      flareAnimationName: 'pikachu',
     ),
     'psyduck': PokemonCharacter(
       name: 'Psyduck',
@@ -47,6 +50,7 @@ class PokemonCharacter {
       next: '/jigglypuff',
       boxColor: Colors.yellow,
       flare: 'assets/psyduck.flr',
+      flareAnimationName: 'psyduck',
     ),
     'jigglypuff': PokemonCharacter(
       name: 'Jigglypuff',
@@ -59,6 +63,7 @@ class PokemonCharacter {
       next: '/zubat',
       boxColor: Colors.purpleAccent,
       flare: 'assets/jigglypuff.flr',
+      flareAnimationName: ' Jigglypuff',
     ),
     'zubat': PokemonCharacter(
       name: 'Zubat',
@@ -71,6 +76,7 @@ class PokemonCharacter {
       next: '/squirtle',
       boxColor: Color(0xFF82B1FF),
       flare: 'assets/zubat.flr',
+      flareAnimationName: 'zubat',
     ),
     'squirtle': PokemonCharacter(
       name: 'Squirtle',
@@ -83,6 +89,7 @@ class PokemonCharacter {
       next: '/bellsprout',
       boxColor: Color(0xFF82B1FF),
       flare: 'assets/squirtle.flr',
+      flareAnimationName: ' Squirtle',
     ),
     'bellsprout': PokemonCharacter(
       name: 'Bellsprout',
@@ -95,6 +102,7 @@ class PokemonCharacter {
       next: '/caterpie',
       boxColor: Colors.yellow,
       flare: 'assets/bellsprout.flr',
+      flareAnimationName: 'bellsprout',
     ),
     'caterpie': PokemonCharacter(
       name: 'Caterpie',
@@ -107,6 +115,7 @@ class PokemonCharacter {
       next: '/bullbasaur',
       boxColor: Colors.green,
       flare: 'assets/caterpie.flr',
+      flareAnimationName: 'caterpie',
     ),
     'bullbasaur': PokemonCharacter(
       name: 'Bullbasaur',
@@ -119,6 +128,7 @@ class PokemonCharacter {
       next: '/charmander',
       boxColor: Colors.greenAccent,
       flare: 'assets/bullbasaur.flr',
+      flareAnimationName: 'bullbasaur',
     ),
     'charmander': PokemonCharacter(
       name: 'Charmander',
@@ -131,6 +141,7 @@ class PokemonCharacter {
       next: '/eevee',
       boxColor: Colors.orange,
       flare: 'assets/charmander.flr',
+      flareAnimationName: 'charmander',
     ),
     'eevee': PokemonCharacter(
       name: 'Eevee',
@@ -143,6 +154,7 @@ class PokemonCharacter {
       next: '/meowth',
       boxColor: Colors.brown,
       flare: 'assets/eevee.flr',
+      flareAnimationName: 'eevee',
     ),
     'meowth': PokemonCharacter(
       name: 'Meowth',
@@ -155,6 +167,7 @@ class PokemonCharacter {
       next: '/snorlax',
       boxColor: Colors.white70,
       flare: 'assets/meowth.flr',
+      flareAnimationName: 'meowth',
     ),
     'snorlax': PokemonCharacter(
       name: 'Snorlax',
@@ -167,6 +180,7 @@ class PokemonCharacter {
       next: null,
       boxColor: Colors.blue,
       flare: 'assets/snorlax.flr',
+      flareAnimationName: 'snorlax',
     ),
   };
 }

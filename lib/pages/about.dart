@@ -16,9 +16,9 @@ class About extends StatelessWidget {
         flexibleSpace: Container(
           decoration: BoxDecoration(
             boxShadow: [
-              new BoxShadow(
+              BoxShadow(
                   color: Colors.black,
-                  offset: new Offset(4.0, 4.0),
+                  offset: Offset(4.0, 4.0),
                   blurRadius: 10.0,
                   spreadRadius: 1.0)
             ],
@@ -46,11 +46,8 @@ class About extends StatelessWidget {
         margin: EdgeInsets.only(top: 60, left: 15, right: 15),
         decoration: BoxDecoration(
           boxShadow: [
-            new BoxShadow(
-                color: Colors.black,
-                offset: new Offset(4.0, 4.0),
-                blurRadius: 10.0,
-                spreadRadius: 1.0)
+            BoxShadow(
+                color: Colors.black, offset: Offset(4.0, 4.0), blurRadius: 10.0, spreadRadius: 1.0)
           ],
           borderRadius: BorderRadius.circular(20),
           color: Colors.amberAccent[100],
@@ -60,7 +57,7 @@ class About extends StatelessWidget {
           '''Icons made by Roundicons Freebies from www.flaticon.com
               App made by Merve Arslan
               Twitter: arslannmrv''',
-          style: new TextStyle(
+          style: TextStyle(
             color: Colors.grey[850],
             fontSize: 17.0,
             fontStyle: FontStyle.normal,
